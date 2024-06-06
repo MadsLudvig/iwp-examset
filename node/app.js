@@ -68,7 +68,9 @@ function validateCoffeeStatusFormData(coffeeStatusData) {
 //function that validates the constraints of the coffe order form data object
 //order data must contain valid name,strength,milk choice attributes
 function validateCoffeeOrderFormData(coffeeOrderData) {
-  let strength;
+  let name = sanitize(coffeeOrderData.name);
+  let strength = sanitize(coffeeOrderData.strength);
+  let milk = sanitize(coffeeOrderData.milk);
   try {
     strength = parseInt(coffeeOrderData.strength);
   } catch (e) {
@@ -81,20 +83,13 @@ function validateCoffeeOrderFormData(coffeeOrderData) {
     order.strength = strength;
   } else throw new Error(ValidationError);
 
-  if (
-    coffeeOrderData.name.length <= maxNameLength &&
-    coffeeOrderData.name.length >= minNameLength
-  ) {
-    order.name = coffeeOrderData.name;
+  if (name.length <= maxNameLength && name.length >= minNameLength) {
+    order.name = name;
   } else throw new Error(ValidationError);
 
   console.log(coffeeOrderData.milk);
-  if (
-    coffeeOrderData.milk === oatmilk ||
-    coffeeOrderData.milk === cowmilk ||
-    coffeeOrderData.milk === nomilk
-  ) {
-    order.milk = coffeeOrderData.milk;
+  if (milk === oatmilk || milk === cowmilk || milk === nomilk) {
+    order.milk = milk;
   } else throw new Error(ValidationError);
 
   return order;
