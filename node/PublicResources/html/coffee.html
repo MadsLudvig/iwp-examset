@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>My APP</title>
+  <link rel="stylesheet" type="text/css" href="css/simple.css">
+</head>
+
+<body>
+  <h1 id="id1"> IWP KABYS (KAffe-Bestillings-sYStem) </h1>
+
+  <section>
+    <form id="coffeeOrderForm_id" action="coffee-orders" method="put">
+      <!-- Action/Method is provided for clarity: This app doesn't use browsers form submission, but handled in JS-->
+      <fieldset>
+        <legend>Kaffebestilling:</legend>
+        <div class="myFormLayout">
+          <!-- Hmm, fieldset seems not too happy to work with grid layout used for the form??-->
+          <label for="coffeeOrderName_id"> Navn </label>
+          <input name="name" id="coffeeOrderName_id" placeholder="Mickey" required>
+
+          <label for="coffeeOrderStrength_id"> Vælg Kaffestyrke </label>
+          <input type="range" name="strength" id="coffeeOrderName_id" placeholder="Mickey" required min=0, max=10>
+
+          <label for="coffeeOrderNoMilk_id"> Ingen mælk </label>
+          <input type="radio" name="milk" id="coffeeOrderNoMilk_id" value="nomilk">
+
+          <label for="coffeeOrderHavMilk_id"> Havremælk </label>
+          <input type="radio" name="milk" id="coffeeOrderHavMilk_id" value="oatmilk">
+
+          <label for="coffeeOrderKoMilk_id"> Sød komælk </label>
+          <input type="radio" name="milk" id="coffeeOrderKoMilk_id" value="cowmilk">
+
+          <input type="submit" id="submitOrderBtn_id" value="Bestil">
+        </div>
+
+      </fieldset>
+    </form>
+    <output id="orderSuccess_id" style="visibility:hidden">Status </output>
+  </section>
+
+  <section>
+    <form id="coffeeStatusForm_id" action="coffee-orders" method="get">
+      <!-- Action/Method is provided for clarity: This app doesn't use browsers form submission, but handled in JS-->
+      <fieldset>
+        <legend>Kaffe Status:</legend>
+        <div class="myFormLayout">
+          <!-- Hmm, fieldset seems not too happy to work with grid layout used for the form??-->
+          <label for="coffeeStatusOrder_id"> Ordre Nummer</label>
+          <input type="number" name="orderID" id="coffeeStatusOrder_id" placeholder="0" required min="0" step="1">
+
+          <input type="submit" id="submitStatusBtn_id" value="Check">
+        </div>
+
+      </fieldset>
+    </form>
+    <output id="status_id" style="visibility:hidden">Status </output>
+  </section>
+  <script src="js/coffee-client.js"></script>
+
+</body>
+
+</html>
