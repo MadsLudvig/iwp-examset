@@ -18,7 +18,7 @@
         <div class="myFormLayout">
           <!-- Hmm, fieldset seems not too happy to work with grid layout used for the form??-->
           <label for="coffeeOrderName_id"> Navn </label>
-          <input name="name" id="coffeeOrderName_id" placeholder="Mickey" required>
+          <input name="name" id="coffeeOrderName_id" placeholder="Mickey" minlength=1 maxlength=30 required>
 
           <label for="coffeeOrderStrength_id"> Vælg Kaffestyrke </label>
           <input type="range" name="strength" id="coffeeOrderName_id" placeholder="Mickey" required min=0, max=10>
